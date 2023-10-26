@@ -24,8 +24,8 @@ sources:
         target: ros_packages/mrs_open_vins_estimator_plugin
     scripts:
       - git submodule update --init --recursive
-  - repo: https://github.com/ctu-mrs/vins_republish
-    name: vins_republish
+  - repo: https://github.com/ctu-mrs/mrs_vins_republisher
+    name: mrs_vins_republisher
     rev: master
     type: git
     params:
@@ -33,6 +33,6 @@ sources:
       -
     links:
       - source: ''
-        target: ros_packages/vins_republish
+        target: ros_packages/mrs_vins_republisher
     scripts:
       - git submodule update --init --recursive

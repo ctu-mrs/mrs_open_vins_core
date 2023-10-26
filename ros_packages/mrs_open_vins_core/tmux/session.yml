@@ -44,7 +44,7 @@ windows:
   - vins_republisher:
       layout: tiled
       panes:
-        - waitForHw; roslaunch vins_republisher vins_republisher_openvins_bluefox.launch
+        - waitForHw; roslaunch mrs_vins_republisher vins_republisher_openvins_bluefox.launch
   - change_odom_source:
       layout: tiled
       panes:
