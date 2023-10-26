@@ -40,7 +40,7 @@ windows:
   - open_vins:
       layout: tiled
       panes:
-        - waitForHw; roslaunch ov_repub simulation_bluefox.launch
+        - waitForHw; roslaunch mrs_open_vins_core simulation_bluefox.launch
   - vins_republisher:
       layout: tiled
       panes:
