@@ -62,7 +62,7 @@ windows:
       layout: tiled
       panes:
         - waitForControl; roslaunch mrs_open_vins_core rviz.launch
-        - waitForControl; roslaunch mrs_rviz_plugins load_robot.launch
+        # - waitForControl; roslaunch mrs_rviz_plugins load_robot.launch
         - waitForTime; waitForControl; roslaunch mrs_rviz_plugins rviz_interface.launch
   - layout:
       layout: tiled
