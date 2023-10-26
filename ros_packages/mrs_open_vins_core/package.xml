@@ -18,8 +18,7 @@
   <depend>ov_eval</depend>
   <depend>ov_init</depend>
   <depend>ov_msckf</depend>
-  <depend>ov_repub</depend>
   <depend>mrs_open_vins_estimator_plugin</depend>
-  <depend>vins_republish</depend>
+  <depend>mrs_vins_republisher</depend>
 
 </package>
