@@ -4,7 +4,7 @@
 
     <!-- what config we are going to run (should match folder name) -->
     <arg name="config"      default="bluefox_imu_simulation" /> <!-- euroc_mav, tum_vi, rpng_aruco -->
-    <arg name="config_path" default="$(find mrs_open_vins_config)/config/$(arg config)/estimator_config.yaml" />
+    <arg name="config_path" default="$(find mrs_open_vins_core)/config/$(arg config)/estimator_config.yaml" />
 
     <!-- MASTER NODE! -->
     <node name="ov_msckf" pkg="ov_msckf" type="run_subscribe_msckf" output="screen" clear_params="true" required="true">
