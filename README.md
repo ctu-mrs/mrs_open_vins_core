@@ -13,3 +13,4 @@ Metapackage containing submodules, launch files, config files, scripts, and othe
 | [open_vins](https://github.com/ctu-mrs/open_vins)                                           |
 | [mrs_open_vins_estimator_plugin](https://github.com/ctu-mrs/mrs_open_vins_estimator_plugin) |
 | [mrs_vins_republisher](https://github.com/ctu-mrs/mrs_vins_republisher)                     |
+| [mrs_vins_imu_filter](https://github.com/ctu-mrs/mrs_vins_imu_filter)                       |
