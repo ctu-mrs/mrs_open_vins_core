@@ -36,3 +36,15 @@ sources:
         target: ros_packages/mrs_vins_republisher
     scripts:
       - git submodule update --init --recursive
+  - repo: https://github.com/ctu-mrs/mrs_vins_imu_filter
+    name: mrs_vins_imu_filter
+    rev: master
+    type: git
+    params:
+    sparse_paths:
+      -
+    links:
+      - source: ''
+        target: ros_packages/mrs_vins_imu_filter
+    scripts:
+      - git submodule update --init --recursive
