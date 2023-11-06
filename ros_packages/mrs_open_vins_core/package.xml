@@ -20,5 +20,6 @@
   <depend>ov_msckf</depend>
   <depend>mrs_open_vins_estimator_plugin</depend>
   <depend>mrs_vins_republisher</depend>
+  <depend>mrs_vins_imu_filter</depend>
 
 </package>
