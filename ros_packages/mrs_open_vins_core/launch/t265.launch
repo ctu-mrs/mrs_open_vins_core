@@ -6,6 +6,8 @@
     <arg name="config"      default="t265" /> <!-- euroc_mav, tum_vi, rpng_aruco -->
     <arg name="config_path" default="$(find mrs_open_vins_core)/config/$(arg config)/estimator_config.yaml" />
 
+  <group ns="$(arg UAV_NAME)">
+
     <!-- MASTER NODE! -->
     <node name="ov_msckf" pkg="ov_msckf" type="run_subscribe_msckf" launch-prefix="" output="screen" clear_params="true" required="true">
 
@@ -18,5 +20,7 @@
         <param name="topic_camera1"  type="string" value="/$(arg UAV_NAME)/t265/fisheye2/image_raw" />
 
     </node>
+
+  </group>
 
 </launch>
