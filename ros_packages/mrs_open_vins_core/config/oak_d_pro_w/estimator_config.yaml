@@ -90,7 +90,7 @@ grid_y: 3 # extraction sub-grid count for vertical direction (uniform tracking)
 # min_px_dist: 10 # distance between features (features near each other provide less information)
 min_px_dist: 20 # distance between features (features near each other provide less information)
 knn_ratio: 0.70 # descriptor knn threshold for the top two descriptor matches
-track_frequency: 11.0 # frequency we will perform feature tracking at (in frames per second / hertz)
+track_frequency: 21.0 # frequency we will perform feature tracking at (in frames per second / hertz)
 # downsample_cameras: true # will downsample image in half if true
 downsample_cameras: false # will downsample image in half if true
 num_opencv_threads: 4 # -1: auto, 0-1: serial, >1: number of threads
