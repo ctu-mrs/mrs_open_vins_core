@@ -15,6 +15,7 @@
         <param name="config_path"            type="string" value="$(arg config_path)" />
 
         <!-- topics -->
+        <!-- <param name="topic_imu"      type="string" value="/$(arg UAV_NAME)/oak/imu/data" /> -->
         <param name="topic_imu"      type="string" value="/$(arg UAV_NAME)/oak/imu/filtered" />
         <param name="topic_camera0"  type="string" value="/$(arg UAV_NAME)/oak/left/image_raw" />
         <param name="topic_camera1"  type="string" value="/$(arg UAV_NAME)/oak/right/image_raw" />
