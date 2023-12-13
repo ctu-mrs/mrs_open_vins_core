@@ -83,7 +83,7 @@ use_klt: true # if true we will use KLT, otherwise use a ORB descriptor + robust
 num_pts: 400 # number of points (per camera) we will extract and try to track
 # num_pts: 200 # number of points (per camera) we will extract and try to track
 # fast_threshold: 20 # threshold for fast extraction (warning: lower threshs can be expensive)
-fast_threshold: 20 # threshold for fast extraction (warning: lower threshs can be expensive)
+fast_threshold: 10 # threshold for fast extraction (warning: lower threshs can be expensive)
 grid_x: 5 # extraction sub-grid count for horizontal direction (uniform tracking)
 # grid_y: 5 # extraction sub-grid count for vertical direction (uniform tracking)
 grid_y: 3 # extraction sub-grid count for vertical direction (uniform tracking)
