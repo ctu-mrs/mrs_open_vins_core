@@ -9,7 +9,7 @@ sources:
       -
     links:
       - source: ''
-        target: ros_packages/open_vins
+        target: open_vins
     scripts:
       - git submodule update --init --recursive
   - repo: https://github.com/ctu-mrs/mrs_open_vins_estimator_plugin
@@ -21,7 +21,7 @@ sources:
       -
     links:
       - source: ''
-        target: ros_packages/mrs_open_vins_estimator_plugin
+        target: mrs_open_vins_estimator_plugin
     scripts:
       - git submodule update --init --recursive
   - repo: https://github.com/ctu-mrs/mrs_vins_republisher
@@ -33,7 +33,7 @@ sources:
       -
     links:
       - source: ''
-        target: ros_packages/mrs_vins_republisher
+        target: mrs_vins_republisher
     scripts:
       - git submodule update --init --recursive
   - repo: https://github.com/ctu-mrs/mrs_vins_imu_filter
@@ -45,6 +45,6 @@ sources:
       -
     links:
       - source: ''
-        target: ros_packages/mrs_vins_imu_filter
+        target: mrs_vins_imu_filter
     scripts:
       - git submodule update --init --recursive
