@@ -1,3 +1,4 @@
 *.sw*
 
 .gitman
+ros_packages/.gitman
