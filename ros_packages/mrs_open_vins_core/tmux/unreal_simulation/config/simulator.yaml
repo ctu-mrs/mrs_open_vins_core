@@ -27,7 +27,7 @@ sensors:
   rgb:
     enabled: true
     rate: 60.0 # [Hz]
-    width: 1280
+    width: 800
     height: 800
     fov: 120
     offset_x: 0.0
