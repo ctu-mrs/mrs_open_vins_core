@@ -53,7 +53,7 @@ input=(
 '
   'Imu' 'waitForHw; roslaunch mrs_serial vio_imu.launch
 '
-  'ImuFilter' 'waitForHw; roslaunch vins_imu_filter filter_icm_42688.launch
+  'ImuFilter' 'waitForHw; roslaunch mrs_vins_imu_filter filter_icm_42688.launch
 '
 # do NOT modify the command list below
   'EstimDiag' 'waitForHw; rostopic echo /'"$UAV_NAME"'/estimation_manager/diagnostics
@@ -169,7 +169,7 @@ if [[ "$attach" == "true" ]]; then
   then
     $TMUX_BIN -2 attach-session -t $SESSION_NAME
   else
-    tmux detach-client -E "tmux -L mrs a -t $SESSION_NAME" 
+    tmux detach-client -E "tmux -L mrs a -t $SESSION_NAME"
   fi
 else
   echo "The session was started"
