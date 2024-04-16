@@ -1,0 +1,64 @@
+<launch>
+
+    <arg name="UAV_NAME"   default="$(env UAV_NAME)" /> 
+
+    <group ns="$(arg UAV_NAME)">
+
+      <!-- SENSOR TOPICS -->
+      <arg name="imu_topic" default="/$(arg UAV_NAME)/vio_imu/imu_filtered" />
+      <arg name="device" default="$(env BLUEFOX)" />
+      <arg name="camera_name" default="bluefox_vio_front" />
+      <arg name="image_topic" default="/$(arg UAV_NAME)/$(arg camera_name)/image_raw" />
+
+      <!-- what config we are going to run (should match folder name) -->
+      <arg name="config"      default="realworld_bluefox_front" /> <!-- euroc_mav, tum_vi, rpng_aruco -->
+      <arg name="config_path" default="$(find mrs_open_vins_core)/config/$(arg config)/estimator_config.yaml" />
+      <arg name="verbosity"   default="INFO" /> <!-- ALL, DEBUG, INFO, WARNING, ERROR, SILENT -->
+
+<!--//{ bluefox2 -->
+      <include file="$(find bluefox2)/launch/single_nodelet.launch">
+        <!-- Camera Settings -->
+        <arg name="plugin" value="false" />
+        <arg name="manager" value="" />
+        <arg name="camera_name" value="bluefox_vio_front" />
+
+        <arg name="aec" value="1" />
+        <arg name="ctm" value="3" />
+        <arg name="max_expose_jump" value="10000" />
+        <arg name="expose_upper_limit_us" default="50000"/>
+
+        <arg name="calib_url" value="file://$(find mrs_open_vins_core)/calibration/mv_$(arg device).yaml" />
+      </include>
+<!--//}-->
+
+<!--//{ open_vins -->
+      <node name="ov_msckf" pkg="ov_msckf" type="run_subscribe_msckf" output="screen">
+
+          <!-- master configuration object -->
+          <param name="verbosity"              type="string" value="$(arg verbosity)" />
+          <param name="config_path"            type="string" value="$(arg config_path)" />
+
+          <!-- topics -->
+          <param name="topic_imu"   type="string"   value="$(arg imu_topic)" />
+          <param name="topic_camera0"   type="string"   value="$(arg image_topic)" />
+
+      </node>
+<!--//}-->
+
+    </group>
+
+<!--//{ vio_imu -->
+      <include file="$(find mrs_serial)/launch/vio_imu.launch">
+      </include>
+<!--//}-->
+
+<!--//{ imu_filter -->
+      <include file="$(find mrs_vins_imu_filter)/launch/filter_icm_42688.launch">
+      </include>
+<!--//}-->
+
+<!--//{ republisher -->
+      <include file="$(find mrs_vins_republisher)/launch/vins_republisher_openvins_bluefox.launch">
+      </include>
+<!--//}-->
+  </launch>
