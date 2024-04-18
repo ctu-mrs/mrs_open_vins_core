@@ -27,6 +27,8 @@ feat_rep_aruco: "ANCHORED_MSCKF_INVERSE_DEPTH"
 # feat_rep_slam: "ANCHORED_FULL_INVERSE_DEPTH"
 # feat_rep_aruco: "ANCHORED_FULL_INVERSE_DEPTH"
 
+fi_max_dist: 60.0 # [m] maximum distance to accept triangulated features
+
 # zero velocity update parameters we can use
 # we support either IMU-based or disparity detection.
 try_zupt: false
