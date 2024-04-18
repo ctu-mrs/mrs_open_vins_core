@@ -20,7 +20,7 @@
         <!-- Camera Settings -->
         <arg name="plugin" value="false" />
         <arg name="manager" value="" />
-        <arg name="camera_name" value="bluefox_vio_front" />
+        <arg name="camera_name" value="$(arg camera_name)" />
 
         <arg name="aec" value="1" />
         <arg name="ctm" value="3" />
