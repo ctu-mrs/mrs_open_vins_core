@@ -8,8 +8,6 @@
 
   <group ns="$(arg UAV_NAME)">
 
-    <node name="republisher" pkg="image_transport" type="republish" args="compressed in:=/$(arg UAV_NAME)/rgbd/image_raw raw out:=/$(arg UAV_NAME)/rgbd/image_raw" output="screen" clear_params="true" required="true" />
-
     <!-- MASTER NODE! -->
     <node name="ov_msckf" pkg="ov_msckf" type="run_subscribe_msckf" output="screen" clear_params="true" required="true">
 
