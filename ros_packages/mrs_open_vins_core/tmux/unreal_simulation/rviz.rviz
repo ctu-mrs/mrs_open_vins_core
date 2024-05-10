@@ -6,7 +6,7 @@ Panels:
       Expanded:
         - /TF1/Frames1
         - /TF1/Tree1
-        - /PointCloud21
+        - /Image1
       Splitter Ratio: 0.5
     Tree Height: 414
   - Class: rviz/Selection
@@ -453,7 +453,7 @@ Visualization Manager:
       Name: TrajectoryGeneration
     - Class: rviz/Image
       Enabled: true
-      Image Topic: /uav1/rgbd/image_raw
+      Image Topic: /uav1/ov_msckf/trackhist
       Max Value: 1
       Median window: 5
       Min Value: 0
@@ -509,7 +509,7 @@ Visualization Manager:
       Value: true
     - Class: rviz/Image
       Enabled: true
-      Image Topic: /uav1/ov_msckf/trackhist
+      Image Topic: /uav1/rgbd/color/image_raw
       Max Value: 1
       Median window: 5
       Min Value: 0
@@ -588,7 +588,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 18.41521644592285
+      Distance: 10
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -596,17 +596,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: -0.28898704051971436
-        Y: 1.6143704652786255
-        Z: 0.13587407767772675
-      Focal Shape Fixed Size: true
+        X: 0
+        Y: 0
+        Z: 0
+      Focal Shape Fixed Size: false
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.4553987681865692
+      Pitch: 0.5253981351852417
       Target Frame: uav1/fcu
-      Yaw: 2.6154353618621826
+      Yaw: 2.770399332046509
     Saved: ~
 Window Geometry:
   Displays:
