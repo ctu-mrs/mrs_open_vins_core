@@ -23,7 +23,7 @@ windows:
   - vins_republisher:
       layout: tiled
       panes:
-        - waitForHw; roslaunch mrs_vins_republisher vins_republisher_openvins_bluefox.launch
+        - waitForHw; roslaunch mrs_vins_republisher vins_republisher_openvins_unreal.launch
   - open_vins:
       layout: tiled
       panes:
