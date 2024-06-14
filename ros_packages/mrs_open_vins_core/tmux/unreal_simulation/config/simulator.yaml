@@ -1,11 +1,6 @@
-simulation_rate: 250
-clock_rate: 250
-realtime_factor: 1.0
-
-iterate_without_input: true
-
-individual_takeoff_platform:
-  enabled: false
+simulation_rate: 250.0 # [Hz]
+clock_rate: 250.0 # [Hz]
+realtime_factor: 0.5
 
 uav_names: [
   "uav1",
@@ -14,31 +9,26 @@ uav_names: [
 uav1:
   type: "x500"
   spawn:
-    x: 0.0 #10.0
-    y: 0.0 #15.0
+    x: 0.0
+    y: 0.0
     z: 2.0
     heading: 0
 
 sensors:
-  lidar:
-    enabled: false
-  lidar_seg:
-    enabled: false
+
   rgb:
     enabled: true
+
     rate: 60.0 # [Hz]
-    width: 800
-    height: 800
-    fov: 120
-    offset_x: 0.0
-    offset_y: 0.0
-    offset_z: 0.0
-    rotation_pitch: 0.0
-    rotation_yaw: 0.0
-    rotation_roll: 0.0
-  depth:
-    enabled: false
-  seg:
-    enabled: false
-  color_depth:
-    enabled: false
+
+    width: 800 # [px]
+    height: 800 # [px]
+    fov: 120.0 # [deg]
+
+    offset_x: 0.14 # [m]
+    offset_y: 0.0 # [m]
+    offset_z: 0.0 # [m]
+
+    rotation_pitch: 0.0 # [deg]
+    rotation_yaw: 0.0 # [deg]
+    rotation_roll: 0.0 # [deg]

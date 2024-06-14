@@ -16,7 +16,7 @@
 
       <!-- topics -->
       <param name="topic_imu"      type="string" value="/$(arg UAV_NAME)/hw_api/imu" />
-      <param name="topic_camera0"  type="string" value="/$(arg UAV_NAME)/rgbd/color/image_raw" />
+      <param name="topic_camera0"  type="string" value="/$(arg UAV_NAME)/rgb/image_raw" />
 
     </node>
 
