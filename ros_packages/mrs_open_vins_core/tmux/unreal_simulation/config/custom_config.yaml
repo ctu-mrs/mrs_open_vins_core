@@ -199,6 +199,8 @@ mrs_uav_managers:
         controller: "Se3Controller"
         tracker: "MpcTracker"
 
+      takeoff_height: 2.5
+
     midair_activation:
 
       during_activation:
@@ -231,8 +233,8 @@ mrs_uav_managers:
     # those gains will be used automatically when a localization mode switches
     # and the current gains are not in the allowed list (next paragraphs)
     default_constraints:
-      open_vins: "slow"
-      gps_baro: "slow"
+      open_vins: "medium"
+      gps_baro: "medium"
 
   gain_manager:
 

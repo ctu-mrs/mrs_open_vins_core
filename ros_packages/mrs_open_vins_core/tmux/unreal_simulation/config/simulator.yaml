@@ -1,7 +1,3 @@
-simulation_rate: 250.0 # [Hz]
-clock_rate: 250.0 # [Hz]
-realtime_factor: 0.5
-
 uav_names: [
   "uav1",
 ]
@@ -11,8 +7,8 @@ uav1:
   spawn:
     x: 0.0
     y: 0.0
-    z: 2.0
-    heading: 0
+    z: 0.0
+    heading: 0.0
 
 sensors:
 
@@ -29,6 +25,6 @@ sensors:
     offset_y: 0.0 # [m]
     offset_z: 0.0 # [m]
 
-    rotation_pitch: 0.0 # [deg]
+    rotation_pitch: 30.0 # [deg]
     rotation_yaw: 0.0 # [deg]
     rotation_roll: 0.0 # [deg]
