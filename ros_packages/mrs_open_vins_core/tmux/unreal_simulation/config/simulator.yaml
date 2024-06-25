@@ -15,7 +15,7 @@ sensors:
   rgb:
     enabled: true
 
-    rate: 60.0 # [Hz]
+    rate: 30.0 # [Hz]
 
     width: 800 # [px]
     height: 800 # [px]
