@@ -5,7 +5,7 @@
     <group ns="$(arg UAV_NAME)">
 
       <!-- SENSOR TOPICS -->
-      <arg name="imu_topic" default="/$(arg UAV_NAME)/icm_imu_driver/imu_out" />
+      <arg name="imu_topic" default="/$(arg UAV_NAME)/icm_imu/imu" />
       <arg name="camera_name" default="libcamera_front" />
       <arg name="image_topic" default="/$(arg UAV_NAME)/$(arg camera_name)/image_raw" />
 
