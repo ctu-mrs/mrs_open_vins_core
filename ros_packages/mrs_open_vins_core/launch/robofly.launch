@@ -12,7 +12,7 @@
       <!-- what config we are going to run (should match folder name) -->
       <arg name="config"      default="robofly" /> <!-- euroc_mav, tum_vi, rpng_aruco -->
       <arg name="config_path" default="$(find mrs_open_vins_core)/config/$(arg config)/estimator_config.yaml" />
-      <arg name="verbosity"   default="INFO" /> <!-- ALL, DEBUG, INFO, WARNING, ERROR, SILENT -->
+      <arg name="verbosity"   default="DEBUG" /> <!-- ALL, DEBUG, INFO, WARNING, ERROR, SILENT -->
 
       <!-- mono or stereo and what ros bag to play -->
       <arg name="max_cameras" default="1" />
