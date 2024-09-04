@@ -1,0 +1,8 @@
+cam0:
+  cam_overlaps: []
+  camera_model: pinhole
+  distortion_coeffs: [-0.03783055501588891, -0.015805554879165032, 0.0023459629827427162, 0.0002431667925148436]
+  distortion_model: equidistant
+  intrinsics: [420.30083010306333, 419.62122663563486, 335.24324481921474, 301.79406992957155]
+  resolution: [768, 480]
+  rostopic: /uav80/libcamera_ros_2/image_raw
