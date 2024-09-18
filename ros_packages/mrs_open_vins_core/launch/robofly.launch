@@ -38,6 +38,8 @@
 <!--//{ open_vins -->
       <node name="ov_msckf" pkg="ov_msckf" type="run_subscribe_msckf" output="screen">
 
+          <param name="uav_name"              type="string" value="$(arg UAV_NAME)" />
+
           <!-- master configuration object -->
           <param name="verbosity"              type="string" value="$(arg verbosity)" />
           <param name="config_path"            type="string" value="$(arg config_path)" />
