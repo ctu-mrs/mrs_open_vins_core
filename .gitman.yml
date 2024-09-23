@@ -60,3 +60,19 @@ sources:
         target: ros_packages/mrs_vins_kickoff_estimator_plugin
     scripts:
       - git submodule update --init --recursive
+sources_locked:
+  - repo: https://github.com/ctu-mrs/open_vins
+    name: open_vins
+    rev: 5a1180a5f085d7f0121432093101f1b5cc03346e
+    type: git
+    params:
+    sparse_paths:
+      -
+    links:
+      - source: ''
+        target: ros_packages/open_vins
+    scripts:
+      - git submodule update --init --recursive
+default_group: ''
+groups:
+  -

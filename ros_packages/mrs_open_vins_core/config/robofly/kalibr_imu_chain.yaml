@@ -13,7 +13,7 @@ imu0:
   gyroscope_random_walk: 1.9393e-05       # [ rad / s^2 / sqrt(Hz) ] ( gyro bias diffusion )
   # rostopic: /uav35/vio_imu/imu_filtered
   time_offset: 0.0
-  update_rate: 1000.0
+  update_rate: 203.0
   # three different modes supported:
   # "calibrated" (same as "kalibr"), "kalibr", "rpng"
   model: "kalibr"
