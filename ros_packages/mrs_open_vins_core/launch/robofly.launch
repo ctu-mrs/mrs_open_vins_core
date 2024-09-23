@@ -6,8 +6,8 @@
 
       <!-- SENSOR TOPICS -->
       <arg name="imu_topic" default="/$(arg UAV_NAME)/icm_imu/imu" />
-      <arg name="camera_name" default="camera_front" />
-      <arg name="image_topic_front" default="/$(arg UAV_NAME)/camera_front/image_raw" />
+      <arg name="camera_name" default="camera_mono" />
+      <arg name="image_topic_front" default="/$(arg UAV_NAME)/camera_mono/image_raw" />
 
       <!-- what config we are going to run (should match folder name) -->
       <arg name="config"      default="robofly" /> <!-- euroc_mav, tum_vi, rpng_aruco -->
@@ -35,8 +35,29 @@
       <arg name="dolivetraj"  default="false" />
       <!-- <arg name="path_gt"     default="$(find ov_data)/$(arg config)/$(arg dataset).txt" /> -->
 
+
+
+        <!-- will it run using GNU debugger? -->
+      <arg name="DEBUG" default="false" />
+      <arg unless="$(arg DEBUG)" name="launch_prefix" value=""/>
+      <arg     if="$(arg DEBUG)" name="launch_prefix" value="debug_roslaunch"/>
+    
+        <!-- will it run as standalone nodelet or using a nodelet manager? -->
+      <arg name="standalone" default="false" />
+      <arg name="manager" default="$(arg UAV_NAME)_vio_manager" />
+      <arg name="n_threads" default="8" />
+      <arg unless="$(arg standalone)" name="nodelet" value="load"/>
+      <arg     if="$(arg standalone)" name="nodelet" value="standalone"/>
+      <arg unless="$(arg standalone)" name="nodelet_manager" value="$(arg manager)"/>
+      <arg     if="$(arg standalone)" name="nodelet_manager" value=""/>
+
+      <node pkg="nodelet" type="nodelet" name="$(arg manager)" args="manager" output="screen" launch-prefix="$(arg launch_prefix) nice -n -10">
+        <param name="num_worker_threads" value="$(arg n_threads)" />
+      </node>
+        
+
 <!--//{ open_vins -->
-      <node name="ov_msckf" pkg="ov_msckf" type="run_subscribe_msckf" output="screen">
+      <node pkg="nodelet" type="nodelet" name="ov_msckf" args="$(arg nodelet) run_subscribe_msckf/RunSubscribeMsckf $(arg nodelet_manager)" launch-prefix="$(arg launch_prefix)" output="screen">
 
           <!-- master configuration object -->
           <param name="verbosity"              type="string" value="$(arg verbosity)" />
@@ -55,6 +76,7 @@
           <param name="topic_camera0"   type="string"   value="$(arg image_topic_front)" />
 
       </node>
+
 <!--//}-->
 
     </group>
