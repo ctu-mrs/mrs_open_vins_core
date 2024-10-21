@@ -63,7 +63,7 @@ sources:
 sources_locked:
   - repo: https://github.com/ctu-mrs/open_vins
     name: open_vins
-    rev: 5a1180a5f085d7f0121432093101f1b5cc03346e
+    rev: cf216b4de8a95fbb29877d8333a87990d6cfd7a7
     type: git
     params:
     sparse_paths:
