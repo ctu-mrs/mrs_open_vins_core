@@ -36,8 +36,7 @@
       <!-- <arg name="path_gt"     default="$(find ov_data)/$(arg config)/$(arg dataset).txt" /> -->
 
 
-
-        <!-- will it run using GNU debugger? -->
+       <!-- will it run using GNU debugger? -->
       <arg name="DEBUG" default="false" />
       <arg unless="$(arg DEBUG)" name="launch_prefix" value=""/>
       <arg     if="$(arg DEBUG)" name="launch_prefix" value="debug_roslaunch"/>
