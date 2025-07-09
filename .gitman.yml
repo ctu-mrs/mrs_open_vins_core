@@ -2,7 +2,7 @@ location: .gitman
 sources:
   - repo: https://github.com/ctu-mrs/open_vins
     name: open_vins
-    rev: master
+    rev: ros2
     type: git
     params:
     sparse_paths:
@@ -12,67 +12,67 @@ sources:
         target: ros_packages/open_vins
     scripts:
       - git submodule update --init --recursive
-  - repo: https://github.com/ctu-mrs/mrs_open_vins_estimator_plugin
-    name: mrs_open_vins_estimator_plugin
-    rev: master
-    type: git
-    params:
-    sparse_paths:
-      -
-    links:
-      - source: ''
-        target: ros_packages/mrs_open_vins_estimator_plugin
-    scripts:
-      - git submodule update --init --recursive
-  - repo: https://github.com/ctu-mrs/mrs_vins_republisher
-    name: mrs_vins_republisher
-    rev: master
-    type: git
-    params:
-    sparse_paths:
-      -
-    links:
-      - source: ''
-        target: ros_packages/mrs_vins_republisher
-    scripts:
-      - git submodule update --init --recursive
-  - repo: https://github.com/ctu-mrs/mrs_vins_imu_filter
-    name: mrs_vins_imu_filter
-    rev: master
-    type: git
-    params:
-    sparse_paths:
-      -
-    links:
-      - source: ''
-        target: ros_packages/mrs_vins_imu_filter
-    scripts:
-      - git submodule update --init --recursive
-  - repo: https://github.com/ctu-mrs/mrs_vins_kickoff_estimator_plugin
-    name: mrs_vins_kickoff_estimator_plugin
-    rev: master
-    type: git
-    params:
-    sparse_paths:
-      -
-    links:
-      - source: ''
-        target: ros_packages/mrs_vins_kickoff_estimator_plugin
-    scripts:
-      - git submodule update --init --recursive
-sources_locked:
-  - repo: https://github.com/ctu-mrs/open_vins
-    name: open_vins
-    rev: cf216b4de8a95fbb29877d8333a87990d6cfd7a7
-    type: git
-    params:
-    sparse_paths:
-      -
-    links:
-      - source: ''
-        target: ros_packages/open_vins
-    scripts:
-      - git submodule update --init --recursive
-default_group: ''
-groups:
-  -
+#   - repo: https://github.com/ctu-mrs/mrs_open_vins_estimator_plugin
+#     name: mrs_open_vins_estimator_plugin
+#     rev: master
+#     type: git
+#     params:
+#     sparse_paths:
+#       -
+#     links:
+#       - source: ''
+#         target: ros_packages/mrs_open_vins_estimator_plugin
+#     scripts:
+#       - git submodule update --init --recursive
+#   - repo: https://github.com/ctu-mrs/mrs_vins_republisher
+#     name: mrs_vins_republisher
+#     rev: master
+#     type: git
+#     params:
+#     sparse_paths:
+#       -
+#     links:
+#       - source: ''
+#         target: ros_packages/mrs_vins_republisher
+#     scripts:
+#       - git submodule update --init --recursive
+#   - repo: https://github.com/ctu-mrs/mrs_vins_imu_filter
+#     name: mrs_vins_imu_filter
+#     rev: master
+#     type: git
+#     params:
+#     sparse_paths:
+#       -
+#     links:
+#       - source: ''
+#         target: ros_packages/mrs_vins_imu_filter
+#     scripts:
+#       - git submodule update --init --recursive
+#   - repo: https://github.com/ctu-mrs/mrs_vins_kickoff_estimator_plugin
+#     name: mrs_vins_kickoff_estimator_plugin
+#     rev: master
+#     type: git
+#     params:
+#     sparse_paths:
+#       -
+#     links:
+#       - source: ''
+#         target: ros_packages/mrs_vins_kickoff_estimator_plugin
+#     scripts:
+#       - git submodule update --init --recursive
+# sources_locked:
+#   - repo: https://github.com/ctu-mrs/open_vins
+#     name: open_vins
+#     rev: ec3fb6e8954008eb5ae2cf2a3db0538004b2af40
+#     type: git
+#     params:
+#     sparse_paths:
+#       -
+#     links:
+#       - source: ''
+#         target: ros_packages/open_vins
+#     scripts:
+#       - git submodule update --init --recursive
+# default_group: ''
+# groups:
+#   -

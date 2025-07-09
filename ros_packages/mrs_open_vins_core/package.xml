@@ -1,26 +1,18 @@
 <?xml version="1.0"?>
-<package format="2">
-
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
   <name>mrs_open_vins_core</name>
-  <version>1.0.0</version>
-  <description>The MRS open_vins core metapackage</description>
+  <version>0.0.0</version>
+  <description>TODO: Package description</description>
+  <maintainer email="ubuntu@todo.todo">ubuntu</maintainer>
+  <license>TODO: License declaration</license>
 
-  <author email="matej.petrlik@fel.cvut.cz">Matej Petrlik</author>
-  <maintainer email="matej.petrlik@fel.cvut.cz">Matej Petrlik</maintainer>
+  <buildtool_depend>ament_cmake</buildtool_depend>
 
-  <license>BSD 3-Clause</license>
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
 
-  <buildtool_depend>catkin</buildtool_depend>
-
-  <depend>cmake_modules</depend>
-
-  <depend>ov_core</depend>
-  <depend>ov_eval</depend>
-  <depend>ov_init</depend>
-  <depend>ov_msckf</depend>
-  <depend>mrs_open_vins_estimator_plugin</depend>
-  <depend>mrs_vins_kickoff_estimator_plugin</depend>
-  <depend>mrs_vins_republisher</depend>
-  <depend>mrs_vins_imu_filter</depend>
-
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
 </package>
