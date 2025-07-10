@@ -1,0 +1,10 @@
+run_subscribe_msckf:
+  ros__parameters:
+    remappings:
+      /imu0: /imu_raw
+      /cam0/image_raw: /uav1/image_raw
+
+/uav1/bluefox2_single:
+  ros__parameters:
+    remappings:
+      /uav1/image_raw: /uav1/image_raw
