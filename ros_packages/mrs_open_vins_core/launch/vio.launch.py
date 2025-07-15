@@ -69,7 +69,8 @@ def get_processed_launch_objects(context):
                                         LaunchConfiguration('config'),
                                         'estimator_config.yaml'
                                     ])
-                    }
+                    },
+                    _custom_config_file
                 ],
         remappings=remappings,
         # remappings=[('/cam0/image_raw', '/uav1/image_raw'),
