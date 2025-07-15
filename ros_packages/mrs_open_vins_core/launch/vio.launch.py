@@ -22,7 +22,6 @@ def get_processed_launch_objects(context):
                 remappings_subyaml = yaml_data[prefix]['ros__parameters']['remappings']
                 for orig_name in remappings_subyaml:
                     new_name = remappings_subyaml[orig_name]
-                    #print(f"remapping topic {orig_name} to {new_name}")
                     remappings.append((orig_name, new_name))
                     
     objects = [
@@ -60,8 +59,6 @@ def get_processed_launch_objects(context):
     objects.append(DeclareLaunchArgument(name='uav_name',          default_value=os.environ["UAV_NAME"]))
     objects.append(DeclareLaunchArgument(name='config',            default_value='realworld_bluefox_front',  description=''))
     objects.append(DeclareLaunchArgument(name='verbosity',         default_value='DEBUG',       description='ALL, DEBUG, INFO, WARNING, ERROR, SILENT'))
-    #objects.append(DeclareLaunchArgument(name='use_stereo',        default_value='false',       description=''))
-    #objects.append(DeclareLaunchArgument(name='max_cameras',       default_value='1',          description=''))
     objects.append(Node(package = 'ov_msckf',
         executable = executable_name,
         namespace = LaunchConfiguration('uav_name'),
@@ -72,11 +69,9 @@ def get_processed_launch_objects(context):
                                         LaunchConfiguration('config'),
                                         'estimator_config.yaml'
                                     ])
-                    },
-                    # {'topic_imu', '/imu_raw'},
-                    # {'topic_camera', '/uav1/image_raw'}
+                    }
                 ],
-        remappings=remappings
+        remappings=remappings,
         # remappings=[('/cam0/image_raw', '/uav1/image_raw'),
         #             ('/imu0', '/imu_raw')]
         #prefix="xterm -e gdb -ex=r --args",

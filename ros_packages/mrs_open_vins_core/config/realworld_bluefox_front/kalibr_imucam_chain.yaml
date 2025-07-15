@@ -1,6 +1,7 @@
 %YAML:1.0
 
 cam0:
+  rostopic: /uav1/image_raw
   T_imu_cam: #rotation from camera to IMU R_CtoI, position of camera in IMU p_CinI
     - [1, 0, 0, 0]
     - [0, 1, 0, 0]
