@@ -72,9 +72,8 @@ def get_processed_launch_objects(context):
                     },
                     _custom_config_file
                 ],
-        remappings=remappings,
-        # remappings=[('/cam0/image_raw', '/uav1/image_raw'),
-        #             ('/imu0', '/imu_raw')]
+        #remappings=remappings,
+        remappings=[('/imu_raw', '/vio_imu/imu_filtered')]
         #prefix="xterm -e gdb -ex=r --args",
         #prefix="gdb -ex=r --args",
     ))
