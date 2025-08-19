@@ -93,5 +93,13 @@ def generate_launch_description():
             ]),
             description='config from the user'
         ),
-        OpaqueFunction(function=get_processed_launch_objects)
+        OpaqueFunction(function=get_processed_launch_objects),
+        Node(
+            package='rviz2',
+            executable='rviz2',
+            name='rviz2',
+            output='screen',
+            # Optional: specify a config file
+            # arguments=['-d', os.path.join(get_package_share_directory('your_package'), 'config', 'your_config.rviz')]
+        )
     ])
