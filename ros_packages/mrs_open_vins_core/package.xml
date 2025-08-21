@@ -12,6 +12,7 @@
   <depend>ov_init</depend>
   <depend>ov_msckf</depend>
   <depend>mrs_vins_imu_filter</depend>
+  <depend>mrs_vins_republisher</depend>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
