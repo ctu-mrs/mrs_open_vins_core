@@ -7,6 +7,12 @@
   <maintainer email="ubuntu@todo.todo">ubuntu</maintainer>
   <license>TODO: License declaration</license>
 
+  <depend>ov_core</depend>
+  <depend>ov_eval</depend>
+  <depend>ov_init</depend>
+  <depend>ov_msckf</depend>
+  <depend>mrs_vins_imu_filter</depend>
+
   <buildtool_depend>ament_cmake</buildtool_depend>
 
   <test_depend>ament_lint_auto</test_depend>
