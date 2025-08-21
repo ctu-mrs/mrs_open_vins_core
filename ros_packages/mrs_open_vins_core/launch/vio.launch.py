@@ -3,6 +3,7 @@ import os
 
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, OpaqueFunction, LogInfo
+from launch.conditions import IfCondition
 from launch.substitutions import LaunchConfiguration, EnvironmentVariable, PathJoinSubstitution
 from launch_ros.actions import Node
 from launch.launch_description_sources import PythonLaunchDescriptionSource
@@ -33,6 +34,7 @@ def get_processed_launch_objects(context):
         objects.append(LogInfo(msg=f"\t{remapping[0]} -> {remapping[1]}"))
     
     
+    # Conditionally include bluefox2 launch
     objects.append(IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
             PathJoinSubstitution([
@@ -43,9 +45,11 @@ def get_processed_launch_objects(context):
         ]),
         launch_arguments={
             'custom_config': LaunchConfiguration('custom_config')
-        }.items()
+        }.items(),
+        condition=IfCondition(LaunchConfiguration('enable_bluefox_cam_and_imu'))
     ))
     
+    # Conditionally include mrs_serial IMU launch
     objects.append(IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
             PathJoinSubstitution([
@@ -53,7 +57,8 @@ def get_processed_launch_objects(context):
                 'launch',
                 'vio_imu.launch.py'
             ])
-        ])
+        ]),
+        condition=IfCondition(LaunchConfiguration('enable_bluefox_cam_and_imu'))
     ))
     
     objects.append(DeclareLaunchArgument(name='uav_name',          default_value=os.environ["UAV_NAME"]))
@@ -84,6 +89,16 @@ def get_processed_launch_objects(context):
 def generate_launch_description():
     return LaunchDescription([
         DeclareLaunchArgument(
+            'enable_bluefox_cam_and_imu',
+            default_value='true',
+            description='If you are running the thing in the separate Docker containers on the drone, set this to false, so only the vio is running in its own container'
+        ),
+        DeclareLaunchArgument(
+            'enable_rviz',
+            default_value='false',
+            description='If you are running the thing in the separate Docker containers on the drone, set this to false, so only the vio is running in its own container'
+        ),
+        DeclareLaunchArgument(
             'custom_config',
             default_value=PathJoinSubstitution([
                 FindPackageShare('mrs_open_vins_core'),
@@ -99,6 +114,7 @@ def generate_launch_description():
             executable='rviz2',
             name='rviz2',
             output='screen',
+            condition=IfCondition(LaunchConfiguration('enable_rviz')),
             # Optional: specify a config file
             # arguments=['-d', os.path.join(get_package_share_directory('your_package'), 'config', 'your_config.rviz')]
         )
