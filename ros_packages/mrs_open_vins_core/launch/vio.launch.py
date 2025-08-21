@@ -82,6 +82,17 @@ def get_processed_launch_objects(context):
         #prefix="xterm -e gdb -ex=r --args",
         #prefix="gdb -ex=r --args",
     ))
+    
+    objects.append(IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([
+            PathJoinSubstitution([
+                FindPackageShare('mrs_vins_imu_filter'),
+                'launch',
+                'filter_icm_42688.py'
+            ])
+        ]),
+        condition=IfCondition(LaunchConfiguration('enable_bluefox_cam_and_imu'))
+    ))
 
     return objects
 
