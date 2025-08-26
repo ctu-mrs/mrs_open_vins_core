@@ -5,7 +5,7 @@ from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, OpaqueFunction, LogInfo
 from launch.conditions import IfCondition
 from launch.substitutions import LaunchConfiguration, EnvironmentVariable, PathJoinSubstitution
-from launch_ros.actions import Node
+from launch_ros.actions import Node, ComposableNodeContainer
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.substitutions import FindPackageShare
 
@@ -32,7 +32,8 @@ def get_processed_launch_objects(context):
         
     for remapping in remappings:
         objects.append(LogInfo(msg=f"\t{remapping[0]} -> {remapping[1]}"))
-    
+        
+    objects.append(DeclareLaunchArgument(name='container_id',      default_value='vio_main_container'))
     
     # Conditionally include bluefox2 launch
     objects.append(IncludeLaunchDescription(
@@ -44,7 +45,9 @@ def get_processed_launch_objects(context):
             ])
         ]),
         launch_arguments={
-            'custom_config': LaunchConfiguration('custom_config')
+            'custom_config': LaunchConfiguration('custom_config'),
+            'container_id': LaunchConfiguration('container_id'),
+            'standalone': 'false'
         }.items(),
         condition=IfCondition(LaunchConfiguration('enable_bluefox_cam_and_imu'))
     ))
@@ -58,7 +61,12 @@ def get_processed_launch_objects(context):
                 'vio_imu.launch.py'
             ])
         ]),
-        condition=IfCondition(LaunchConfiguration('enable_bluefox_cam_and_imu'))
+        condition=IfCondition(LaunchConfiguration('enable_bluefox_cam_and_imu')),
+        launch_arguments={
+            #'custom_config': LaunchConfiguration('custom_config')
+            'container_id': LaunchConfiguration('container_id'),
+            'standalone': 'false'
+        }.items()
     ))
     
     objects.append(DeclareLaunchArgument(name='uav_name',          default_value=os.environ["UAV_NAME"]))
@@ -83,6 +91,15 @@ def get_processed_launch_objects(context):
         #prefix="gdb -ex=r --args",
     ))
     
+    objects.append(ComposableNodeContainer(
+        name=LaunchConfiguration('container_id'),
+        namespace='',
+        package='rclcpp_components',
+        executable='component_container',
+        composable_node_descriptions=[],  # Start empty
+        output='screen',
+    ))
+    
     objects.append(IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
             PathJoinSubstitution([
@@ -91,7 +108,12 @@ def get_processed_launch_objects(context):
                 'filter_icm_42688.py'
             ])
         ]),
-        condition=IfCondition(LaunchConfiguration('enable_bluefox_cam_and_imu'))
+        condition=IfCondition(LaunchConfiguration('enable_bluefox_cam_and_imu')),
+        launch_arguments={
+            #'custom_config': LaunchConfiguration('custom_config')
+            'container_name': LaunchConfiguration('container_id'),
+            'standalone': 'false'
+        }.items()
     ))
 
     return objects
