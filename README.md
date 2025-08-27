@@ -6,6 +6,8 @@ Metapackage containing submodules, launch files, config files, scripts, and othe
 >
 > The MRS UAV System 1.5 is being released and this page needs updating. Please, keep in mind that the information on this page might not be valid.
 
+After you clone this repository, you will need to run `gitman update` to install the submodules, you can find it [here](https://gitman.readthedocs.io/en/latest/).
+
 ## Package mrs_open_vins_core
 
 This package is a minimal runnable OpenVINS example. It does not have the other nodes yet - imu filter, republisher and some estimators. Configs were taken from the ROS1 package (estimator_plugin.yaml, kalibr_imu_chain.yaml and kalibr_imucam_chain.yaml).
