@@ -32,8 +32,21 @@ def get_processed_launch_objects(context):
         
     for remapping in remappings:
         objects.append(LogInfo(msg=f"\t{remapping[0]} -> {remapping[1]}"))
-        
-    objects.append(DeclareLaunchArgument(name='container_id',      default_value='vio_main_container'))
+    
+    objects.append(DeclareLaunchArgument(name='uav_name',               default_value=os.environ["UAV_NAME"]))
+    # Construct the container ID
+    objects.append(DeclareLaunchArgument(name='container_name',         default_value='vio_main_container'))
+    objects.append(DeclareLaunchArgument(name='container_namespace',    default_value=LaunchConfiguration('uav_name')))
+    objects.append(DeclareLaunchArgument(name='container_id',           default_value=PathJoinSubstitution([LaunchConfiguration('container_namespace'), LaunchConfiguration('container_name')])))
+    
+    objects.append(ComposableNodeContainer(
+        name=LaunchConfiguration('container_name'),
+        namespace=LaunchConfiguration('container_namespace'),
+        package='rclcpp_components',
+        executable='component_container',
+        composable_node_descriptions=[],  # Start empty
+        output='screen',
+    ))
     
     # Conditionally include bluefox2 launch
     objects.append(IncludeLaunchDescription(
@@ -69,35 +82,30 @@ def get_processed_launch_objects(context):
         }.items()
     ))
     
-    objects.append(DeclareLaunchArgument(name='uav_name',          default_value=os.environ["UAV_NAME"]))
     objects.append(DeclareLaunchArgument(name='config',            default_value='realworld_bluefox_front',  description=''))
     objects.append(DeclareLaunchArgument(name='verbosity',         default_value='DEBUG',       description='ALL, DEBUG, INFO, WARNING, ERROR, SILENT'))
-    objects.append(Node(package = 'ov_msckf',
-        executable = executable_name,
-        namespace = LaunchConfiguration('uav_name'),
-        parameters =[{'verbosity': LaunchConfiguration('verbosity')},
-                    {'config_path': PathJoinSubstitution([
-                                        FindPackageShare('mrs_open_vins_core'),
-                                        'config',
-                                        LaunchConfiguration('config'),
-                                        'estimator_config.yaml'
-                                    ])
-                    },
-                    _custom_config_file
-                ],
-        #remappings=remappings,
-        remappings=[('/imu_raw', '/vio_imu/imu_filtered')]
-        #prefix="xterm -e gdb -ex=r --args",
-        #prefix="gdb -ex=r --args",
-    ))
     
-    objects.append(ComposableNodeContainer(
-        name=LaunchConfiguration('container_id'),
-        namespace='',
-        package='rclcpp_components',
-        executable='component_container',
-        composable_node_descriptions=[],  # Start empty
-        output='screen',
+    objects.append(IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([
+            PathJoinSubstitution([
+                FindPackageShare('ov_msckf'),
+                'launch',
+                'subscribe_composable.launch.py'
+            ])
+        ]),
+        condition=IfCondition(LaunchConfiguration('enable_bluefox_cam_and_imu')),
+        launch_arguments={
+            #'custom_config': LaunchConfiguration('custom_config')
+            'container_id': LaunchConfiguration('container_id'),
+            'standalone': 'false',
+            'config_path': PathJoinSubstitution([
+                FindPackageShare('mrs_open_vins_core'),
+                'config',
+                LaunchConfiguration('config'),
+                'estimator_config.yaml'
+            ]),
+            'custom_config': _custom_config_file
+        }.items(),
     ))
     
     objects.append(IncludeLaunchDescription(

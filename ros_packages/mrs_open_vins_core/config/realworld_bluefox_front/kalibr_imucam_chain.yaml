@@ -1,7 +1,7 @@
 %YAML:1.0
 
 cam0:
-  rostopic: /uav27/image_raw
+  rostopic: /image_raw
   T_imu_cam: #rotation from camera to IMU R_CtoI, position of camera in IMU p_CinI
     - [1, 0, 0, 0]
     - [0, 1, 0, 0]
@@ -19,4 +19,4 @@ cam0:
   distortion_model: equidistant
   intrinsics: [217.88521402620648, 217.7127565041609, 392.36434593680553, 218.27079698259612]
   resolution: [752, 480]
-  rostopic: /uav27/image_raw
+  rostopic: /image_raw
