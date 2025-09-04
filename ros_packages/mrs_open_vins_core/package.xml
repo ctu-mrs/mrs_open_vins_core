@@ -14,7 +14,6 @@
 
   <depend>mrs_vins_imu_filter</depend>
   <depend>mrs_vins_republisher</depend>
-  <depend>mrs_vins_republisher</depend>
   <depend>mrs_open_vins_estimator_plugin</depend>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
