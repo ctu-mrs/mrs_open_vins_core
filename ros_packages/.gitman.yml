@@ -9,21 +9,9 @@ sources:
       -
     links:
       - source: ''
-        target: ros_packages/open_vins
+        target: open_vins
     scripts:
       - git submodule update --init --recursive
-#   - repo: https://github.com/ctu-mrs/mrs_open_vins_estimator_plugin
-#     name: mrs_open_vins_estimator_plugin
-#     rev: ros2
-#     type: git
-#     params:
-#     sparse_paths:
-#       -
-#     links:
-#       - source: ''
-#         target: ros_packages/mrs_open_vins_estimator_plugin
-#     scripts:
-#       - git submodule update --init --recursive
   - repo: https://github.com/ctu-mrs/mrs_vins_republisher
     name: mrs_vins_republisher
     rev: ros2
@@ -33,7 +21,7 @@ sources:
       -
     links:
       - source: ''
-        target: ros_packages/mrs_vins_republisher
+        target: mrs_vins_republisher
     scripts:
       - git submodule update --init --recursive
   - repo: https://github.com/ctu-mrs/mrs_vins_imu_filter
@@ -45,7 +33,7 @@ sources:
       -
     links:
       - source: ''
-        target: ros_packages/mrs_vins_imu_filter
+        target: mrs_vins_imu_filter
     scripts:
       - git submodule update --init --recursive
 #   - repo: https://github.com/ctu-mrs/mrs_vins_kickoff_estimator_plugin
@@ -57,22 +45,18 @@ sources:
 #       -
 #     links:
 #       - source: ''
-#         target: ros_packages/mrs_vins_kickoff_estimator_plugin
+#         target: mrs_vins_kickoff_estimator_plugin
 #     scripts:
 #       - git submodule update --init --recursive
-# sources_locked:
-#   - repo: https://github.com/ctu-mrs/open_vins
-#     name: open_vins
-#     rev: ec3fb6e8954008eb5ae2cf2a3db0538004b2af40
+#   - repo: https://github.com/ctu-mrs/mrs_open_vins_estimator_plugin
+#     name: mrs_open_vins_estimator_plugin
+#     rev: ros2
 #     type: git
 #     params:
 #     sparse_paths:
 #       -
 #     links:
 #       - source: ''
-#         target: ros_packages/open_vins
+#         target: mrs_open_vins_estimator_plugin
 #     scripts:
 #       - git submodule update --init --recursive
-# default_group: ''
-# groups:
-#   -
