@@ -1,0 +1,9 @@
+/uav1/run_subscribe_msckf:
+  ros__parameters:
+    remappings:
+      /imu_raw: /vio_imu/imu_filtered
+
+# /uav1/bluefox2_single:
+#   ros__parameters:
+#     remappings:
+#       /uav1/image_raw: /vio_imu/imu_filtered

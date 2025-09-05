@@ -12,4 +12,10 @@ ament_export_dependencies(
   ${DEPENDENCIES}
 )
 
+install(
+  DIRECTORY tmux
+  USE_SOURCE_PERMISSIONS
+  DESTINATION share/${PROJECT_NAME}
+)
+
 ament_package()
