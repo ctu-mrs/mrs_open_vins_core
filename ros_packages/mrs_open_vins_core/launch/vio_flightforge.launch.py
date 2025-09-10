@@ -11,10 +11,21 @@ from launch_ros.substitutions import FindPackageShare
 
 from ament_index_python.packages import get_package_share_directory
 
-def get_processed_launch_objects(context):        
+def generate_launch_description():
     objects = []
     
-    objects.append(DeclareLaunchArgument(name='uav_name',               default_value=os.environ["UAV_NAME"]))
+    objects.append(DeclareLaunchArgument(name='uav_name', default_value=os.environ["UAV_NAME"]))
+    
+    objects.append(DeclareLaunchArgument(
+        'custom_config',
+        default_value=PathJoinSubstitution([
+            FindPackageShare('mrs_open_vins_core'),
+            'config',
+            'realworld_bluefox_front',
+            'custom_config_exmaple.yaml'
+        ]),
+        description='config from the user'
+    ))
     
     # #{ custom config
 
@@ -32,7 +43,7 @@ def get_processed_launch_objects(context):
 
     # #} end of custom config
     
-    objects.append(DeclareLaunchArgument(name='verbosity',         default_value='DEBUG',       description='ALL, DEBUG, INFO, WARNING, ERROR, SILENT'))
+    objects.append(DeclareLaunchArgument(name='verbosity', default_value='DEBUG', description='ALL, DEBUG, INFO, WARNING, ERROR, SILENT'))
     
     objects.append(IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
@@ -54,21 +65,5 @@ def get_processed_launch_objects(context):
             'custom_config': custom_config
         }.items(),
     ))
-    
-    return objects
 
-def generate_launch_description():
-
-    return LaunchDescription([
-        DeclareLaunchArgument(
-            'custom_config',
-            default_value=PathJoinSubstitution([
-                FindPackageShare('mrs_open_vins_core'),
-                'config',
-                'realworld_bluefox_front',
-                'custom_config_exmaple.yaml'
-            ]),
-            description='config from the user'
-        ),
-        OpaqueFunction(function=get_processed_launch_objects),
-    ])
+    return LaunchDescription(objects)
