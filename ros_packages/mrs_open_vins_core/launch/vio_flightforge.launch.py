@@ -11,29 +11,8 @@ from launch_ros.substitutions import FindPackageShare
 
 from ament_index_python.packages import get_package_share_directory
 
-def get_processed_launch_objects(context):
-    _custom_config_file = LaunchConfiguration('custom_config').perform(context)
-    remappings = []
-    executable_name = "run_subscribe_msckf"
-    prefix = executable_name
-    # pull remapping of the topics out of the yaml file
-    if _custom_config_file != '':
-        with open(_custom_config_file, 'r') as f:
-            yaml_data = yaml.load(f, Loader=yaml.FullLoader)
-
-            if prefix in yaml_data and 'remappings' in yaml_data[prefix]['ros__parameters']:
-                remappings_subyaml = yaml_data[prefix]['ros__parameters']['remappings']
-                for orig_name in remappings_subyaml:
-                    new_name = remappings_subyaml[orig_name]
-                    remappings.append((orig_name, new_name))
-                    
-    objects = [
-        LogInfo(msg=f"custom config file: {_custom_config_file}"),
-        LogInfo(msg=f"remappings:"),
-    ]
-        
-    for remapping in remappings:
-        objects.append(LogInfo(msg=f"\t{remapping[0]} -> {remapping[1]}"))
+def get_processed_launch_objects(context):        
+    objects = []
     
     objects.append(DeclareLaunchArgument(name='uav_name',               default_value=os.environ["UAV_NAME"]))
     
@@ -72,7 +51,7 @@ def get_processed_launch_objects(context):
                 'config/simulation_flightforge',
                 'estimator_config.yaml'
             ]),
-            'custom_config': _custom_config_file
+            'custom_config': custom_config
         }.items(),
     ))
     
