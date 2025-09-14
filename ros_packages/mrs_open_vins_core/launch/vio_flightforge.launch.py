@@ -62,7 +62,8 @@ def generate_launch_description():
                 'config/simulation_flightforge',
                 'estimator_config.yaml'
             ]),
-            'custom_config': custom_config
+            'custom_config': custom_config,
+            'use_sim_time': 'true'
         }.items(),
     ))
 
