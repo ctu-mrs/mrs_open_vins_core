@@ -24,6 +24,10 @@ windows:
       layout: tiled
       panes:
         - ros2 launch mrs_open_vins_core vio_flightforge.launch.py
+  - vins_republisher:
+      layout: tiled
+      panes:
+        - ros2 launch mrs_open_vins_core vio_flightforge.launch.py
   - static_tf:
       layout: tiled
       panes:
