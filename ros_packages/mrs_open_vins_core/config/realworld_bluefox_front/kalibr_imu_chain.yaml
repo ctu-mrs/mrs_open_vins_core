@@ -1,7 +1,7 @@
 %YAML:1.0
 
 imu0:
-  rostopic: /imu_raw
+  rostopic: vio_imu/imu_raw
   T_i_b:
     - [1.0, 0.0, 0.0, 0.0]
     - [0.0, 1.0, 0.0, 0.0]

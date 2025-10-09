@@ -12,4 +12,4 @@ cam0:
   distortion_model: radtan
   intrinsics: [184.752086, 184.752086, 320.000000, 240.000000]
   resolution: [640, 480]
-  rostopic: /uav1/rgb/image_raw
+  rostopic: rgb/image_raw

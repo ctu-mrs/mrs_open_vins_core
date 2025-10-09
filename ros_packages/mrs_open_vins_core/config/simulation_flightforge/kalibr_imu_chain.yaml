@@ -1,7 +1,7 @@
 %YAML:1.0
 
 imu0:
-  rostopic: /uav1/hw_api/imu
+  rostopic: hw_api/imu
   T_i_b:
     - [1.0, 0.0, 0.0, 0.0]
     - [0.0, 1.0, 0.0, 0.0]
