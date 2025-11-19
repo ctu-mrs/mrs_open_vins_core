@@ -17,7 +17,7 @@ windows:
       layout: tiled
       panes:
         - ros2 launch mrs_serial vio_imu.launch.py
-  - open_vins:
+  - rqt_image_view:
       layout: tiled
       panes:
-        - ros2 launch mrs_open_vins_core open_vins.launch.py config_path:=config/estimator_config.yaml
+        - ros2 run rqt_image_view rqt_image_view
