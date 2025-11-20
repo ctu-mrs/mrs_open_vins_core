@@ -14,7 +14,7 @@ calib_imu_intrinsics: false # if imu intrinsics should be calibrated (rotation a
 calib_imu_g_sensitivity: false # if gyroscope gravity sensitivity (Tg) should be calibrated
 
 max_clones: 11 # how many clones in the sliding window
-max_slam: 50 # number of features in our state vector
+max_slam: 200 # number of features in our state vector
 max_slam_in_update: 50 # update can be split into sequential updates of batches, how many in a batch
 max_msckf_in_update: 50 # how many MSCKF features to use in the update
 dt_slam_delay: 2 # delay before initializing (helps with stability from bad initialization...)
@@ -96,7 +96,7 @@ knn_ratio: 0.70 # descriptor knn threshold for the top two descriptor matches
 track_frequency: 100.0 # frequency we will perform feature tracking at (in frames per second / hertz)
 downsample_cameras: false # will downsample image in half if true
 num_opencv_threads: 4 # -1: auto, 0-1: serial, >1: number of threads
-histogram_method: "NONE" # NONE, HISTOGRAM, CLAHE
+histogram_method: "CLAHE" # NONE, HISTOGRAM, CLAHE (Contrast Limited Adaptive Histogram Equalization)
 
 multi_threading_pubs: true
 multi_threading_subs: true
@@ -106,6 +106,14 @@ multi_threading_subs: true
 use_aruco: false
 num_aruco: 1024
 downsize_aruco: true
+
+# params for the adaptive equalization
+eq_win_size: 8
+eq_clip_limit: 10.0
+
+# LK optical flow params
+win_size_optflow: 15
+pyr_levels: 5
 
 # ==================================================================
 # ==================================================================
