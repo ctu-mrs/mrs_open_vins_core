@@ -9,6 +9,10 @@ startup_window: open_vins
 #pre_window: export UAV_NAME=uav1; export RMW_IMPLEMENTATION=rmw_zenoh_cpp
 pre_window: export UAV_NAME=uav1
 windows:
+  - router:
+      layout: tiled
+      panes:
+        - ros2 run rmw_zenoh_cpp rmw_zenohd
   - bluefox:
       layout: tiled
       panes:
