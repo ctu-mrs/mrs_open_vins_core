@@ -25,7 +25,6 @@ windows:
       layout: tiled
       panes:
         - ros2 launch mrs_open_vins_core open_vins.launch.py config_path:=config/estimator_config.yaml enable_filter:=true
-        #- valgrind --tool=helgrind --read-var-info=yes --track-lockorders=yes --history-level=full ros2 launch mrs_open_vins_core open_vins.launch.py config_path:=config/estimator_config.yaml enable_filter:=true
   - rviz:
       layout: tiled
       panes:
