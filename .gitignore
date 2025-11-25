@@ -3,3 +3,4 @@
 .gitman
 ros_packages/.gitman
 rosbag2*
+*bag_file_path*
