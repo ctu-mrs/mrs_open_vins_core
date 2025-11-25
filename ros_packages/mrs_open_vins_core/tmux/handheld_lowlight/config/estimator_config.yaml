@@ -2,7 +2,7 @@
 
 verbosity: "INFO" # ALL, DEBUG, INFO, WARNING, ERROR, SILENT
 
-use_fej: true # if first-estimate Jacobians should be used (enable for good consistency)
+use_fej: false # if first-estimate Jacobians should be used (enable for good consistency)
 integration: "rk4" # discrete, rk4, analytical (if rk4 or analytical used then analytical covariance propagation is used)
 use_stereo: false # if we have more than 1 camera, if we should try to track stereo constraints between pairs
 max_cameras: 1 # how many cameras we have 1 = mono, 2 = stereo, >2 = binocular (all mono tracking)
@@ -13,7 +13,7 @@ calib_cam_timeoffset: true # if timeoffset between camera and IMU should be opti
 calib_imu_intrinsics: false # if imu intrinsics should be calibrated (rotation and skew-scale matrix)
 calib_imu_g_sensitivity: false # if gyroscope gravity sensitivity (Tg) should be calibrated
 
-max_clones: 11 # how many clones in the sliding window
+max_clones: 20 # how many clones in the sliding window
 max_slam: 200 # number of features in our state vector
 max_slam_in_update: 50 # update can be split into sequential updates of batches, how many in a batch
 max_msckf_in_update: 50 # how many MSCKF features to use in the update
@@ -86,16 +86,16 @@ use_klt: true # if true we will use KLT, otherwise use a ORB descriptor + robust
 num_pts: 200 # number of points (per camera) we will extract and try to track
 # num_pts: 200 # number of points (per camera) we will extract and try to track
 # fast_threshold: 20 # threshold for fast extraction (warning: lower threshs can be expensive)
-fast_threshold: 30 # threshold for fast extraction (warning: lower threshs can be expensive)
+fast_threshold: 10 # threshold for fast extraction (warning: lower threshs can be expensive)
 grid_x: 5 # extraction sub-grid count for horizontal direction (uniform tracking)
 # grid_y: 5 # extraction sub-grid count for vertical direction (uniform tracking)
 grid_y: 5 # extraction sub-grid count for vertical direction (uniform tracking)
 # min_px_dist: 10 # distance between features (features near each other provide less information)
 min_px_dist: 5 # distance between features (features near each other provide less information)
-knn_ratio: 0.70 # descriptor knn threshold for the top two descriptor matches
+knn_ratio: 0.9 # descriptor knn threshold for the top two descriptor matches
 track_frequency: 100.0 # frequency we will perform feature tracking at (in frames per second / hertz)
 downsample_cameras: false # will downsample image in half if true
-num_opencv_threads: 4 # -1: auto, 0-1: serial, >1: number of threads
+num_opencv_threads: 1 # -1: auto, 0-1: serial, >1: number of threads
 histogram_method: "CLAHE" # NONE, HISTOGRAM, CLAHE (Contrast Limited Adaptive Histogram Equalization)
 
 multi_threading_pubs: true
@@ -114,6 +114,27 @@ eq_clip_limit: 10.0
 # LK optical flow params
 win_size_optflow: 15
 pyr_levels: 5
+
+# nfeatures: 500
+# scaleFactor: 1.2
+# nlevels: 8
+# edgeThreshold: 31
+# firstLevel: 0
+# WTA_K: 2
+# #scoreType: ORB::HARRIS_SCORE
+# patchSize: 31
+# fastThreshold: 20
+
+nfeatures: 2000
+scaleFactor: 1.2
+nlevels: 8
+edgeThreshold: 15
+firstLevel: 0
+WTA_K: 4
+#scoreType: ORB::HARRIS_SCORE
+patchSize: 31
+fastThreshold: 10
+
 
 # ==================================================================
 # ==================================================================

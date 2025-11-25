@@ -1,0 +1,28 @@
+# do not modify these
+root: ./
+name: handheld_lowlight
+socket_name: mrs
+attach: true
+tmux_options: -f /etc/ctu-mrs/tmux.conf
+# you can modify these
+startup_window: open_vins
+#pre_window: export UAV_NAME=uav1; export RMW_IMPLEMENTATION=rmw_zenoh_cpp
+pre_window: export UAV_NAME=uav1
+windows:
+  - router:
+      layout: tiled
+      panes:
+        - ros2 run rmw_zenoh_cpp rmw_zenohd
+  - open_vins:
+      layout: tiled
+      panes:
+        - ros2 launch mrs_open_vins_core open_vins.launch.py config_path:=config/estimator_config.yaml enable_filter:=true
+        #- valgrind --tool=helgrind --read-var-info=yes --track-lockorders=yes --history-level=full ros2 launch mrs_open_vins_core open_vins.launch.py config_path:=config/estimator_config.yaml enable_filter:=true
+  - rviz:
+      layout: tiled
+      panes:
+        - ros2 run rviz2 rviz2 --display-config rviz.rviz
+  - compressed_to_raw:
+      layout: tiled
+      panes:
+        - ros2 run image_transport republish --ros-args -p in_transport:=compressed -p out_transport:=raw --remap in/compressed:=/uav1/bluefox/image_raw/compressed --remap out:=/uav1/bluefox/image_raw
