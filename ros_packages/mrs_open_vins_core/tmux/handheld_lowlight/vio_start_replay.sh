@@ -10,7 +10,8 @@ export TMUX_SESSION_NAME=open_vins
 export TMUX_SOCKET_NAME=mrs
 
 # start tmuxinator
-tmuxinator start -p ./vio_session_replay.yml
+#tmuxinator start -p ./vio_session_replay_ordinary.yml
+tmuxinator start -p ./vio_session_replay_serial.yml
 
 # if we are not in tmux
 if [ -z $TMUX ]; then

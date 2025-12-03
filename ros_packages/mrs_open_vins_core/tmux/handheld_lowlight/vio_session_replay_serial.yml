@@ -25,7 +25,11 @@ windows:
       layout: tiled
       panes:
         - ros2 run image_transport republish --ros-args -p in_transport:=compressed -p use_sim_time:=true -p out_transport:=raw --remap in/compressed:=/uav1/bluefox/image_raw/compressed --remap out:=/uav1/bluefox/image_raw
-  - bag_play:
+  - serial_msckf:
       layout: tiled
       panes:
-        - ros2 bag play --clock 100 $(cat bag_file_path)
+        - ros2 launch ov_msckf serial_composable.launch.py topic_camera0:=/uav1/bluefox/image_raw/compressed path_bag:=$(cat bag_file_path)
+  - path_eval:
+      layout: tiled
+      panes:
+        - python3 path_distance_node.py

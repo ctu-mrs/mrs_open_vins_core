@@ -96,7 +96,7 @@ knn_ratio: 0.9 # descriptor knn threshold for the top two descriptor matches
 track_frequency: 100.0 # frequency we will perform feature tracking at (in frames per second / hertz)
 downsample_cameras: false # will downsample image in half if true
 num_opencv_threads: 1 # -1: auto, 0-1: serial, >1: number of threads
-histogram_method: "CLAHE" # NONE, HISTOGRAM, CLAHE (Contrast Limited Adaptive Histogram Equalization)
+histogram_method: "NONE" # NONE, HISTOGRAM, CLAHE (Contrast Limited Adaptive Histogram Equalization)
 
 multi_threading_pubs: true
 multi_threading_subs: true
