@@ -13,18 +13,10 @@ windows:
       layout: tiled
       panes:
         - ros2 run rmw_zenoh_cpp rmw_zenohd
-  - open_vins:
-      layout: tiled
-      panes:
-        - ros2 launch mrs_open_vins_core open_vins.launch.py config_path:=config/estimator_config.yaml enable_filter:=true use_sim_time:=true
   - rviz:
       layout: tiled
       panes:
         - ros2 run rviz2 rviz2 --display-config rviz.rviz
-  - compressed_to_raw:
-      layout: tiled
-      panes:
-        - ros2 run image_transport republish --ros-args -p in_transport:=compressed -p use_sim_time:=true -p out_transport:=raw --remap in/compressed:=/uav1/bluefox/image_raw/compressed --remap out:=/uav1/bluefox/image_raw
   - serial_msckf:
       layout: tiled
       panes:
@@ -32,4 +24,4 @@ windows:
   - path_eval:
       layout: tiled
       panes:
-        - python3 path_distance_node.py
+        - python3 path_distance_node.py --ros-args -p path_topic:=/serial_msckf/pathimu_out

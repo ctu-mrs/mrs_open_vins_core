@@ -16,7 +16,7 @@ windows:
   - open_vins:
       layout: tiled
       panes:
-        - ros2 launch mrs_open_vins_core open_vins.launch.py config_path:=config/estimator_config.yaml enable_filter:=true use_sim_time:=true
+        - ros2 launch mrs_open_vins_core open_vins.launch.py config_path:=config/estimator_config.yaml enable_filter:=false use_sim_time:=true
   - rviz:
       layout: tiled
       panes:
@@ -32,4 +32,4 @@ windows:
   - path_eval:
       layout: tiled
       panes:
-        - python3 path_distance_node.py
+        - python3 path_distance_node.py path_topic:=/uav1/open_vins/pathimu
