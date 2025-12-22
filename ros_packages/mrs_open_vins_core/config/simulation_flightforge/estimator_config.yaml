@@ -120,3 +120,11 @@ use_mask: false
 # imu config should also have the correct noise values
 relative_config_imu: "kalibr_imu_chain.yaml"
 relative_config_imucam: "kalibr_imucam_chain.yaml"
+
+# params for the adaptive equalization
+eq_win_size: 8
+eq_clip_limit: 10.0
+
+# LK optical flow params
+win_size_optflow: 15
+pyr_levels: 5
