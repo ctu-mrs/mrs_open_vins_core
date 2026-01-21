@@ -16,11 +16,12 @@ windows:
   - rviz:
       layout: tiled
       panes:
-        - ros2 run rviz2 rviz2 --display-config rviz.rviz
+        #- ros2 run rviz2 rviz2 --display-config rviz.rviz
+        - rviz2 --display-config rviz.rviz
   - serial_msckf:
       layout: tiled
       panes:
-        - ros2 launch ov_msckf serial_composable.launch.py topic_camera0:=/uav1/bluefox/image_raw/compressed path_bag:=$(cat bag_file_path)
+        - ros2 launch ov_msckf serial_composable.launch.py topic_camera0:=/uav1/bluefox/image_raw/compressed path_bag:=$(cat bag_file_path) > serial_output.txt
   - path_eval:
       layout: tiled
       panes:

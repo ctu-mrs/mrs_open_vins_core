@@ -1,0 +1,6 @@
+path stats:
+	path length length from OpenVINS: ~124m (ground truth not available)
+	approx. location of starting point: 50.051470, 14.390093
+	endpoints distance: 0 (start and end in the same spot)
+	endpoints distance VIO: ~9m
+	illumination conditions: natural, daylight, heavy overcast

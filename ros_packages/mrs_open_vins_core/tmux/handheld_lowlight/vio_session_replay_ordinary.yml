@@ -20,7 +20,8 @@ windows:
   - rviz:
       layout: tiled
       panes:
-        - ros2 run rviz2 rviz2 --display-config rviz.rviz
+        #- ros2 run rviz2 rviz2 --display-config rviz.rviz
+        - rviz2 --display-config rviz.rviz --ros-args -p use_sim_time:=true
   - compressed_to_raw:
       layout: tiled
       panes:
@@ -33,3 +34,7 @@ windows:
       layout: tiled
       panes:
         - python3 path_distance_node.py path_topic:=/uav1/open_vins/pathimu
+  - gps:
+      layout: tiled
+      panes:
+        - ros2 run mrs_open_vins_core gps_to_path.py --ros-args -p use_sim_time:=true
