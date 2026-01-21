@@ -42,10 +42,10 @@ windows:
   #     layout: tiled
   #     panes:
   #       - ros2 launch mrs_open_vins_core navsat_transform.launch.py
-  - ekf:
-      layout: tiled
-      panes:
-        - ros2 launch mrs_open_vins_core ekf.launch.py
+  # - ekf:
+  #     layout: tiled
+  #     panes:
+  #       - ros2 launch mrs_open_vins_core ekf.launch.py
   - path_alignment:
       layout: tiled
       panes:
