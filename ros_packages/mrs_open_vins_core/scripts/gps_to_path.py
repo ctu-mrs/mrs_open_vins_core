@@ -226,8 +226,8 @@ class GPSToPathConverter(Node):
         self.path.poses.append(pose)
         
         # Limit path length
-        if len(self.path.poses) > self.max_path_length:
-            self.path.poses.pop(0)
+        # if len(self.path.poses) > self.max_path_length:
+        #     self.path.poses.pop(0)
         
         # Update path header timestamp
         self.path.header.stamp = msg.header.stamp
