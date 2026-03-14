@@ -1,0 +1,16 @@
+launch:
+  - node:
+      pkg: "tf2_ros"
+      exec: "static_transform_publisher"
+      name: "mrs_vio_imu_1_tf"
+      args: "--x 0.0 --y 0.0 --z 0.2 --yaw 0 --pitch 0 --roll 0 --frame-id mrs_vio/imu --child-frame-id uav1_front/imu"
+  - node:
+      pkg: "tf2_ros"
+      exec: "static_transform_publisher"
+      name: "mrs_vio_imu_2_tf"
+      args: "--x 0.0 --y 0.0 --z 0.2 --yaw 0 --pitch 0 --roll 0 --frame-id mrs_vio/imu --child-frame-id uav1_back/imu"
+  - node:
+      pkg: "tf2_ros"
+      exec: "static_transform_publisher"
+      name: "mrs_vio_tf"
+      args: "--x 0.0 --y 0.0 --z 0.2 --yaw 0 --pitch 0 --roll 0 --frame-id uav1/fcu --child-frame-id mrs_vio/imu"
