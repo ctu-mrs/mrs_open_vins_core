@@ -47,7 +47,7 @@ init_imu_thresh: 0.5 # threshold for variance of the accelerometer to detect a "
 init_max_disparity: 2.0 # max disparity to consider the platform stationary (dependent on resolution)
 init_max_features: 75 # how many features to track during initialization (saves on computation)
 
-init_dyn_use: true # if dynamic initialization should be used
+init_dyn_use: false # if dynamic initialization should be used
 init_dyn_mle_opt_calib: false # if we should optimize calibration during intialization (not recommended)
 init_dyn_mle_max_iter: 50 # how many iterations the MLE refinement should use (zero to skip the MLE)
 init_dyn_mle_max_time: 0.05 # how many seconds the MLE should be completed in
@@ -86,17 +86,17 @@ use_klt: true # if true we will use KLT, otherwise use a ORB descriptor + robust
 num_pts: 200 # number of points (per camera) we will extract and try to track
 # num_pts: 200 # number of points (per camera) we will extract and try to track
 # fast_threshold: 20 # threshold for fast extraction (warning: lower threshs can be expensive)
-fast_threshold: 30 # threshold for fast extraction (warning: lower threshs can be expensive)
+fast_threshold: 15 # threshold for fast extraction (warning: lower threshs can be expensive)
 grid_x: 10 # extraction sub-grid count for horizontal direction (uniform tracking)
 # grid_y: 5 # extraction sub-grid count for vertical direction (uniform tracking)
 grid_y: 10 # extraction sub-grid count for vertical direction (uniform tracking)
 # min_px_dist: 10 # distance between features (features near each other provide less information)
-min_px_dist: 5 # distance between features (features near each other provide less information)
+min_px_dist: 10 # distance between features (features near each other provide less information)
 knn_ratio: 0.9 # descriptor knn threshold for the top two descriptor matches
-track_frequency: 50.0 # frequency we will perform feature tracking at (in frames per second / hertz)
+track_frequency: 100.0 # frequency we will perform feature tracking at (in frames per second / hertz)
 downsample_cameras: false # will downsample image in half if true
 num_opencv_threads: 1 # -1: auto, 0-1: serial, >1: number of threads
-histogram_method: "CLAHE" # NONE, HISTOGRAM, CLAHE (Contrast Limited Adaptive Histogram Equalization)
+histogram_method: "NONE" # NONE, HISTOGRAM, CLAHE (Contrast Limited Adaptive Histogram Equalization)
 
 multi_threading_pubs: true
 multi_threading_subs: true

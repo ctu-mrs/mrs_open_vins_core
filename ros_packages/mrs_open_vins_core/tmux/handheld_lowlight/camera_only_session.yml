@@ -21,3 +21,7 @@ windows:
       layout: tiled
       panes:
         - ros2 run rqt_image_view rqt_image_view
+  # - autoexposure:
+  #     layout: tiled
+  #     panes:
+  #       - ros2 run aer_auto_exposure_gradient exp_node1 --ros-args -p image_topic:=/uav1/bluefox/image_raw --ros-args -p shutter_speed_apply_topic:=/uav1/expose_us

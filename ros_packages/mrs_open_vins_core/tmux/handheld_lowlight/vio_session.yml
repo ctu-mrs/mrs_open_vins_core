@@ -25,6 +25,10 @@ windows:
       layout: tiled
       panes:
         - ros2 launch mrs_open_vins_core open_vins.launch.py config_path:=config/estimator_config.yaml enable_filter:=true
+  # - aer:
+  #     layout: tiled
+  #     panes:
+  #       - ros2 launch aer_auto_exposure_gradient exp_node.launch.py camera_name:=bluefox
   - rviz:
       layout: tiled
       panes:

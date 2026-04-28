@@ -21,7 +21,7 @@ windows:
   - serial_msckf:
       layout: tiled
       panes:
-        - ros2 launch ov_msckf serial_composable.launch.py topic_camera0:=/uav1/bluefox/image_raw/compressed path_bag:=$(cat bag_file_path) > serial_output.txt
+        - ros2 launch ov_msckf serial_composable.launch.py topic_camera0:=/uav1/bluefox/image_raw/compressed path_bag:=$(cat bag_file_path)
   - path_eval:
       layout: tiled
       panes:
