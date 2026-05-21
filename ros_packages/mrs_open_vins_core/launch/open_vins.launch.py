@@ -100,7 +100,6 @@ def generate_launch_description():
             ])
         ]),
         launch_arguments={
-            'standalone': 'true',
             'config_path': config_path,
             'custom_config': custom_config,
             'use_sim_time': use_sim_time,
